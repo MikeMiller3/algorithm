@@ -1,8 +1,20 @@
 /**
- * 求一个字符串中不重复的最长子串
+ * Given a string, find the length of the longest substring without repeating characters.
+ *
+ * Examples:
+ *
+ * Given "abcabcbb", the answer is "abc", which the length is 3.
+ *
+ * Given "bbbbb", the answer is "b", with the length of 1.
+ *
+ * Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+ *
+ *
+ * 求一个字符串中不重复的最长子串的长度
  * 如
- * abcabcaa => abc
- * qweqreweq => weqr
+ * abcabcbb => 3
+ * bbbbb => 1
+ * pwwkew => 3
  *
  */
 
@@ -16,7 +28,7 @@ var lengthOfLongestSubstring = function (s) {
         var str = ''
         for (var j = i; j < len; j++) {
             var item = s[j];
-            if (str.indexOf(item) != -1) {
+            if (str.indexOf(item) == -1) {
                 str += item
             } else {
                 break;
@@ -26,5 +38,5 @@ var lengthOfLongestSubstring = function (s) {
             maxStr = str
         }
     }
-    return maxStr
+    return maxStr.length
 };
